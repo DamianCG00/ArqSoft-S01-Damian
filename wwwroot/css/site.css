@@ -1,31 +1,81 @@
+:root {
+    --bg-color: #12121b;
+    --text-color: #e2e8f0;
+    --primary-color: #258cfb;
+    --primary-hover: #1a6ac2;
+    --accent-glow: rgba(37, 140, 251, 0.4);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 html {
-  font-size: 14px;
+    font-size: 14px;
+    position: relative;
+    min-height: 100%;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
+    html {
+        font-size: 16px;
+    }
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    animation: fadeInUp 0.8s ease-out forwards;
 }
 
+a, .btn, .form-control {
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+    .btn-primary:hover {
+        background-color: var(--primary-hover);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 15px var(--accent-glow);
+    }
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem var(--bg-color), 0 0 0 0.25rem var(--primary-color);
+    outline: none;
+}
+
+.form-control {
+    background-color: #1e1e2f;
+    color: var(--text-color);
+    border: 1px solid #333;
+}
+
+    .form-control:focus {
+        background-color: #232336;
+        border-color: var(--primary-color);
+        color: white;
+    }
+
 .form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
-  color: var(--bs-secondary-color);
-  text-align: end;
+    color: #888;
+    text-align: end;
+    transition: text-align 0.3s ease-in-out;
 }
 
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
-  text-align: start;
+    text-align: start;
 }
