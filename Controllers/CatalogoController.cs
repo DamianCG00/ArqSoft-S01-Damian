@@ -59,11 +59,14 @@ namespace Catalogo.Controllers
 
         //formulario - POST
         [HttpPost]
-        public IActionResult Agregar (Item item)
+        public IActionResult Agregar(Item item)
         {
-            item.Id = _items.Count;
+            // Busca el ID más alto actual y le suma 1 para el nuevo juego
+            item.Id = _items.Any() ? _items.Max(i => i.Id) + 1 : 1;
+
             _items.Add(item);
             return RedirectToAction("Index");
         }
+    }
     };
 }

@@ -1,26 +1,41 @@
 ﻿@model Catalogo.Models.Item
-<h1>Agregar videojuego</h1>
 
-<form asp-action="Agregar" method="post">
-	<div>
-		<label>Título</label>
-		<input asp-for="Titulo" />
-	</div>
-	<div>
-		<label>Género</label>
-		<input asp-for="Genero" />
-</div>
-/* Continúa en la siguiente */
-<div>
-	<label>Consola</label>
-	<input asp-for="Consola" />
-</div>
-<div>
-	<label>Descrpicion</label>
-	<textarea asp-for="Descripcion"></textarea>
-</div>
-<button type="submit">Guardar</button>
-</form>
+<div class="row justify-content-center mt-4">
+    <!-- Contenedor sin fondo y con borde blanco -->
+    <div class="col-md-6" style="background: transparent; padding: 30px; border-radius: 15px; border: 2px solid white; box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);">
+        
+        <h1 class="mb-4 text-center text-uppercase" style="letter-spacing: 2px;">Agregar nuevo videojuego</h1>
+        
+        <form asp-action="Agregar" method="post">
+            <div class="mb-3">
+                <label class="form-label text-muted">Título</label>
+                <input asp-for="Titulo" class="form-control" placeholder="Ej. Halo: Combat Evolved" required />
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label text-muted">Género</label>
+                <input asp-for="Genero" class="form-control" placeholder="Ej. Shooter" required />
+            </div>
 
-<hr />
-<a asp-action="Index">&larr; Cancelar</a>
+            <div class="mb-3">
+                <label class="form-label text-muted">Año</label>
+                <input asp-for="Ano" class="form-control" type="number" placeholder="Ej. 2001" required />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label text-muted">Consola</label>
+                <input asp-for="Consola" class="form-control" placeholder="Ej. Xbox" required />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label text-muted">Descripción</label>
+                <textarea asp-for="Descripcion" class="form-control" rows="4" placeholder="De qué trata el juego..." required></textarea>
+            </div>
+
+            <div class="mt-4 d-flex justify-content-between align-items-center">
+                <a asp-action="Index" class="text-muted text-decoration-none mt-2">&larr; Cancelar y volver</a>
+                <button type="submit" class="btn btn-primary px-4">Guardar Videojuego</button>
+            </div>
+        </form>
+    </div>
+</div>
